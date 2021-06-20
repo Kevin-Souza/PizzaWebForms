@@ -43,7 +43,7 @@
                 <ItemTemplate>
                     <tr>
                         <td>
-                            <%# DataBinder.Eval(Container.DataItem, "id") %>
+                            <%# DataBinder.Eval(Container.DataItem, "id_usu") %>
                         </td>
                         <td>
                             <%# DataBinder.Eval(Container.DataItem, "nome") %>
@@ -53,17 +53,17 @@
                         </td>
                         <td>
                             <asp:LinkButton ID="lnkDetalhes" runat="server">
-                                <a href='<%# Eval("id", "detalhes.aspx?id={0}") %>'>
+                                <a href='<%# Eval("id_usu", "detalhes.aspx?id={0}") %>'>
                                     <span class="fas fa-eye"></span>
                                 </a>
                             </asp:LinkButton>
                             <asp:LinkButton ID="lnkEditar" runat="server">
-                                <a href='<%# Eval("id", "editar.aspx?id={0}") %>'>
+                                <a href='<%# Eval("id_usu", "editar.aspx?id={0}") %>'>
                                     <span class="fas fa-pencil-alt"></span>
                                 </a>
                             </asp:LinkButton>
                             <asp:LinkButton ID="lnkRemover" runat="server">
-                                <a href='<%# Eval("id", "remover.aspx?id={0}") %>'>
+                                <a href='<%# Eval("id_usu", "remover.aspx?id={0}") %>'>
                                     <span class="fas fa-trash-alt"></span>
                                 </a>
                             </asp:LinkButton>

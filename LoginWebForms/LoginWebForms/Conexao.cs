@@ -10,7 +10,7 @@ namespace LoginWebForms
     {
         #region Parâmetros Conexão
         private static string Server = "localhost";
-        private static string Database = "web_session";
+        private static string Database = "pizzaria";
         private static string User = "root";
         private static string Password = "654321";
 

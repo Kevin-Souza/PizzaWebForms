@@ -30,7 +30,7 @@ namespace LoginWebForms
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao.Connection;
-                cmd.CommandText = @"Select * from usuario where id = @IDCliente";
+                cmd.CommandText = @"Select * from usuario where id_usu = @IDCliente";
 
                 cmd.Parameters.AddWithValue("@IDCliente", IDCliente);
 

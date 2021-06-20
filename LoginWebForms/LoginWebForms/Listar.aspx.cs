@@ -24,7 +24,7 @@ namespace LoginWebForms
 
         private void CarregarUsuarios()
         {
-            string query = @"select id, nome, nivel from usuario";
+            string query = @"select id_usu, nome, nivel from usuario";
             DataTable dt = new DataTable();
             try
             {
