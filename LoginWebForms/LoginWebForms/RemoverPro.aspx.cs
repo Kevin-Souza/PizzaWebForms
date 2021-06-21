@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace LoginWebForms
 {
-    public partial class Remover : System.Web.UI.Page
+    public partial class RemoverPro : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,22 +25,22 @@ namespace LoginWebForms
 
         private void DadosConsulta()
         {
-            int IDUsuario = ObterIDCliente();
+            int IDPizza = ObterIDCliente();
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao.Connection;
-                cmd.CommandText = @"Select * from usuario where id_usu = @IDUsuario";
+                cmd.CommandText = @"Select * from pizza where id_pizza = @IDPizza";
 
-                cmd.Parameters.AddWithValue("@IDUsuario", IDUsuario);
+                cmd.Parameters.AddWithValue("@IDPizza", IDPizza);
 
                 Conexao.Conectar();
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    txtNome.Text = reader["nome"].ToString();
-                    txtLogin.Text = reader["login"].ToString();
-                    ddlNivel.Text = reader["nivel"].ToString();
+                    txtSabor.Text = reader["Sabor"].ToString();
+                    txtBordas.Text = reader["Bordas"].ToString();
+                    ddlTamanho.Text = reader["Tamanho"].ToString();
                 }
             }
             catch (Exception ex)
@@ -73,24 +73,24 @@ namespace LoginWebForms
 
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Listar.aspx");
+            Response.Redirect("Produto.aspx");
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
-            int idUsuario = ObterIDCliente();
+            int idPizza = ObterIDCliente();
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao.Connection;
-                cmd.CommandText = @"delete from usuario where id_usu = @id";
+                cmd.CommandText = @"delete from pizza where id_pizza = @id_pizza";
 
-                cmd.Parameters.AddWithValue("@id", idUsuario);
+                cmd.Parameters.AddWithValue("@id_pizza", idPizza);
 
                 Conexao.Conectar();
                 cmd.ExecuteNonQuery();
 
-                Response.Redirect("Listar.aspx");
+                Response.Redirect("Produto.aspx");
             }
             catch (Exception ex)
             {

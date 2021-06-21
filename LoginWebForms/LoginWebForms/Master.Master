@@ -6,13 +6,14 @@
 <head runat="server">
     <title>Controle de Usuários</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="img/logo-removebg-preview.png" />"
+    <link rel="shortcut icon" href="img/logo2.png" />
+    <link href="style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <style>
-        body{
+        body {
             background-image: url(img/fundo.png);
         }
     </style>

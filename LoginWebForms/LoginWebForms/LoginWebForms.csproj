@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adicionar.aspx" />
+    <Content Include="AdicionarPro.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -101,6 +102,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalhes.aspx" />
+    <Content Include="DetalhesPro.aspx" />
     <Content Include="editar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\logo-removebg-preview.png" />
@@ -109,6 +111,7 @@
     <Content Include="Listar.aspx" />
     <Content Include="Produto.aspx" />
     <Content Include="Remover.aspx" />
+    <Content Include="RemoverPro.aspx" />
     <Content Include="Sair.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -221,6 +224,13 @@
     <Compile Include="Adicionar.aspx.designer.cs">
       <DependentUpon>Adicionar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdicionarPro.aspx.cs">
+      <DependentUpon>AdicionarPro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdicionarPro.aspx.designer.cs">
+      <DependentUpon>AdicionarPro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Conexao.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -235,6 +245,13 @@
     </Compile>
     <Compile Include="Detalhes.aspx.designer.cs">
       <DependentUpon>Detalhes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalhesPro.aspx.cs">
+      <DependentUpon>DetalhesPro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalhesPro.aspx.designer.cs">
+      <DependentUpon>DetalhesPro.aspx</DependentUpon>
     </Compile>
     <Compile Include="editar.aspx.cs">
       <DependentUpon>editar.aspx</DependentUpon>
@@ -274,6 +291,13 @@
     </Compile>
     <Compile Include="Remover.aspx.designer.cs">
       <DependentUpon>Remover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemoverPro.aspx.cs">
+      <DependentUpon>RemoverPro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoverPro.aspx.designer.cs">
+      <DependentUpon>RemoverPro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sair.aspx.cs">
       <DependentUpon>Sair.aspx</DependentUpon>
