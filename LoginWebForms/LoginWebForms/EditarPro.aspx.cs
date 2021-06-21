@@ -3,58 +3,75 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace LoginWebForms
 {
-    public partial class editar : System.Web.UI.Page
+    public partial class EditarPro : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (CapturaID())
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            Response.Redirect("Default.aspx");
+
+            if (!Page.IsPostBack)
             {
-                DadosConsulta();
+                if (CapturaID())
+                {
+                    DadosConsulta();
+                }
             }
         }
+
+        #region CapturaID
 
         private bool CapturaID()
         {
             return Request.QueryString.AllKeys.Contains("id");
         }
 
+        #endregion
+
+        #region Dados Consulta
+
         private void DadosConsulta()
         {
-            int IDCliente = ObterIDCliente();
+            var IdCliente = ObterIDCliente();
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao.Connection;
-                cmd.CommandText = @"Select * from usuario 
-                                    where id_usu = @IDCliente";
+                cmd.CommandText = @"select * from pizza
+                                    where id_pizza = @IDCliente";
 
-                cmd.Parameters.AddWithValue("@IDCliente", IDCliente);
+                cmd.Parameters.AddWithValue("@IDCliente", IdCliente);
 
                 Conexao.Conectar();
+
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    txtNome.Text = reader["nome"].ToString();
-                    txtLogin.Text = reader["login"].ToString();
-                    ddlNivel.Text = reader["nivel"].ToString();
+                    txtSabor.Text = reader["sabor"].ToString();
+                    txtBordas.Text = reader["bordas"].ToString();
+                    ddlTamanho.Text = reader["tamanho"].ToString();
+                    txtPreco.Text = reader["preco"].ToString();
                 }
             }
             catch (Exception ex)
             {
-                throw;
+                lblResultado.Text = ex.Message;
             }
             finally
             {
                 Conexao.Desconectar();
             }
         }
+        # endregion
 
-        #region
+        #region Obter ID Cliente
 
         private int ObterIDCliente()
         {
@@ -83,20 +100,19 @@ namespace LoginWebForms
             try
             {
                 cmd.Connection = Conexao.Connection;
-                cmd.CommandText = @"update usuario
-                                        set nome        = @nome,
-                                            login       = @login,
-                                            senha       = @senha,
-                                            nivel       = @nivel
-                                        where id_usu    = @id";
+                cmd.CommandText = @"update pizza
+                                    set sabor       =@sabor,
+                                        tamanho     =@tamanho,
+                                        bordas      =@bordas,
+                                        preco       =@preco,
+                                    where id_pizza  =@id_pizza";
 
-                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                cmd.Parameters.AddWithValue("@login", txtLogin.Text);
-                cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
-                cmd.Parameters.AddWithValue("@nivel", ddlNivel.Text);
+                cmd.Parameters.AddWithValue("@sabor", txtSabor.Text);
+                cmd.Parameters.AddWithValue("@tamanho", txtBordas.Text);
+                cmd.Parameters.AddWithValue("@bordas", ddlTamanho.Text);
+                cmd.Parameters.AddWithValue("@preco", txtPreco.Text);
 
                 Conexao.Conectar();
-
                 cmd.ExecuteNonQuery();
                 Response.Redirect("Listar.aspx");
             }

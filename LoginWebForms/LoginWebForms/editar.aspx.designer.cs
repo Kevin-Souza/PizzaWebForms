@@ -51,15 +51,6 @@ namespace LoginWebForms
         protected global::System.Web.UI.WebControls.TextBox txtLogin;
 
         /// <summary>
-        /// Controle rfvSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSenha;
-
-        /// <summary>
         /// Controle txtSenha.
         /// </summary>
         /// <remarks>

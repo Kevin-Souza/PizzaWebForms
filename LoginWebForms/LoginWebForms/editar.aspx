@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="text-center text-primary">
         <h2>Cadastro de usuários</h2>
@@ -26,12 +27,9 @@
 
         <div class="col-md-2">
             <label>Senha:</label>
-            <asp:RequiredFieldValidator ID="rfvSenha" ControlToValidate="txtSenha"
-                ErrorMessage="*" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" MaxLength="8"
                 CssClass="form-control"></asp:TextBox>
         </div>
-
 
         <div class="col-md-3">
             <label>Nível:</label>

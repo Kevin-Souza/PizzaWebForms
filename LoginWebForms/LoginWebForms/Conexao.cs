@@ -10,12 +10,12 @@ namespace LoginWebForms
     {
         #region Parâmetros Conexão
         private static string Server = "localhost";
-        private static string Database = "pizzaria";
+        private static string Database = "web_pizzaria";
         private static string User = "root";
-        private static string Password = "654321";
+        private static string Password = "152127";
 
         private static string connectionString = $@"Server={Server};Database={Database};
-                                                    Uid={User};Pwd={Password};SslMode=none;
+                                                    uid={User};Pwd={Password};SslMode=none;
                                                     Charset=utf8";
 
         public static MySqlConnection Connection = new MySqlConnection(connectionString);

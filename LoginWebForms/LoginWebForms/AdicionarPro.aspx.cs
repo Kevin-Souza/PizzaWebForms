@@ -16,18 +16,35 @@ namespace LoginWebForms
         }
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
+            //Salva foto 
+            //uplImg.SaveAs(Server.MapPath($"ImgPizzas/{uplImg.FileName}"));
+
+            {
+                var mensagem = string.Empty;
+                if (this.uplImg. HasFile)
+                {
+                    this.uplImg.SaveAs(Server.MapPath("ImgPizzas/" + uplImg.FileName));
+                    mensagem = "Imagem gravada com sucesso!";
+                }
+                else
+                    mensagem = "Selecione uma imagem!";
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
+            }
+
             MySqlCommand cmd = new MySqlCommand();
             try
             {
                 cmd.Connection = Conexao.Connection;
                 cmd.CommandText = @"insert into pizza
-                                    (sabor, bordas, tamanho)
+                                    (sabor, bordas, tamanho, preco)
                                     values
-                                    (@sabor, @bordas, @tamanho)";
+                                    (@sabor, @bordas, @tamanho, @preco)";
 
                 cmd.Parameters.AddWithValue("@sabor", txtSabor.Text);
                 cmd.Parameters.AddWithValue("@bordas", txtBordas.Text);
                 cmd.Parameters.AddWithValue("@tamanho", ddlTamanho.Text);
+                cmd.Parameters.AddWithValue("@preco", txtPreco.Text);
 
                 Conexao.Conectar();
                 cmd.ExecuteNonQuery();

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Detalhes.aspx.cs" Inherits="LoginWebForms.Detalhes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="text-center text-primary">
         <h2>Consultar Dados do Cliente</h2>
@@ -22,7 +24,6 @@
                 ErrorMessage="*" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txtLogin" runat="server" MaxLength="10" CssClass="form-control" Enabled="false"></asp:TextBox>
         </div>
-
 
         <div class="col-md-3">
             <label>Nível:</label>
