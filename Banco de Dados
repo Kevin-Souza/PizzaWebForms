@@ -1,1 +1,28 @@
+create database web_pizzaria;
+use web_pizzaria;
 
+create table pizza
+(
+id_pizza	int				not null auto_increment,
+sabor		varchar(50)		not null,
+tamanho		varchar(1)		not null,
+bordas		varchar(20)		not null,
+preco		float			not null,
+primary key(id_pizza)
+);
+
+create table usuario
+(
+id_usu	int				not null auto_increment,
+nome	varchar(50)		not null,
+login	varchar(10)		not null,
+senha	text			not null,
+nivel	char(1)			not null,
+primary key(id_usu)
+);
+
+select *
+from pizza;
+
+select * 
+from usuario;
