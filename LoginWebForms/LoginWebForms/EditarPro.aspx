@@ -10,12 +10,6 @@
         <h2>Cadastro de Pizza</h2>
     </div>
 
-    <div class="row" style="margin-top: 30px; justify-content: center">
-        <div class="col-md-6">
-            <label>Imagem:</label>
-            <asp:Image ID="imgProduto" runat="server" Width="100%" Style="border-radius:6px;" />
-        </div>
-    </div>
      <div class="row" style="margin-top: 30px; justify-content: center">
         <div class="col-md-6">
             <label>Imagem:</label>
@@ -24,7 +18,11 @@
     </div>
 
     <div class="row" style="margin-top: 15px">
-        <div class="col-md-12">
+        <div class="col-md-2">
+            <label>ID:</label>
+            <asp:TextBox ID="txtID" runat="server" MaxLength="50" CssClass="form-control" Enabled="false"></asp:TextBox>
+        </div>
+        <div class="col-md-10">
             <label>Sabor:</label>
             <asp:RequiredFieldValidator ID="rfvSabor" ControlToValidate="txtSabor"
                 ErrorMessage="*" ForeColor="Red" runat="server">

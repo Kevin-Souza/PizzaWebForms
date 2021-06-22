@@ -13,10 +13,6 @@ namespace LoginWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Abandon();
-            FormsAuthentication.SignOut();
-            Response.Redirect("Default.aspx");
-
             if (!Page.IsPostBack)
             {
                 if (CapturaID())
@@ -26,34 +22,28 @@ namespace LoginWebForms
             }
         }
 
-        #region CapturaID
-
         private bool CapturaID()
         {
             return Request.QueryString.AllKeys.Contains("id");
         }
 
-        #endregion
-
-        #region Dados Consulta
-
         private void DadosConsulta()
         {
-            var IdCliente = ObterIDCliente();
+            int IDCliente = ObterIDCliente();
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao.Connection;
-                cmd.CommandText = @"select * from pizza
+                cmd.CommandText = @"Select * from pizza 
                                     where id_pizza = @IDCliente";
 
-                cmd.Parameters.AddWithValue("@IDCliente", IdCliente);
+                cmd.Parameters.AddWithValue("@IDCliente", IDCliente);
 
                 Conexao.Conectar();
-
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    txtID.Text = reader["id_pizza"].ToString();
                     txtSabor.Text = reader["sabor"].ToString();
                     txtBordas.Text = reader["bordas"].ToString();
                     ddlTamanho.Text = reader["tamanho"].ToString();
@@ -62,16 +52,15 @@ namespace LoginWebForms
             }
             catch (Exception ex)
             {
-                lblResultado.Text = ex.Message;
+                throw;
             }
             finally
             {
                 Conexao.Desconectar();
             }
         }
-        # endregion
 
-        #region Obter ID Cliente
+        #region
 
         private int ObterIDCliente()
         {
@@ -91,7 +80,7 @@ namespace LoginWebForms
 
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Listar.aspx");
+            Response.Redirect("Produto.aspx");
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)
@@ -101,20 +90,22 @@ namespace LoginWebForms
             {
                 cmd.Connection = Conexao.Connection;
                 cmd.CommandText = @"update pizza
-                                    set sabor       =@sabor,
-                                        tamanho     =@tamanho,
-                                        bordas      =@bordas,
-                                        preco       =@preco,
-                                    where id_pizza  =@id_pizza";
+                                        set sabor       = @sabor,
+                                            tamanho     = @tamanho,
+                                            bordas      = @bordas,
+                                            preco       = @preco
+                                        where id_pizza    = @id";
 
+                cmd.Parameters.AddWithValue("@id", txtID.Text);
                 cmd.Parameters.AddWithValue("@sabor", txtSabor.Text);
-                cmd.Parameters.AddWithValue("@tamanho", txtBordas.Text);
-                cmd.Parameters.AddWithValue("@bordas", ddlTamanho.Text);
+                cmd.Parameters.AddWithValue("@bordas", txtBordas.Text);
+                cmd.Parameters.AddWithValue("@tamanho", ddlTamanho.Text);
                 cmd.Parameters.AddWithValue("@preco", txtPreco.Text);
 
                 Conexao.Conectar();
+
                 cmd.ExecuteNonQuery();
-                Response.Redirect("Listar.aspx");
+                Response.Redirect("Produto.aspx");
             }
             catch (Exception ex)
             {

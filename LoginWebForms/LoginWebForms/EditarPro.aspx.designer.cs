@@ -15,15 +15,6 @@ namespace LoginWebForms
     {
 
         /// <summary>
-        /// Controle imgProduto.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgProduto;
-
-        /// <summary>
         /// Controle uplImg.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,15 @@ namespace LoginWebForms
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload uplImg;
+
+        /// <summary>
+        /// Controle txtID.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
         /// Controle rfvSabor.

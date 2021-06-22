@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +14,11 @@ namespace LoginWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string nivel = Session["Perfil"].ToString();
+            if (nivel == "O")
+            {
+                btnAdicionar.Visible = false;
+            }
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)

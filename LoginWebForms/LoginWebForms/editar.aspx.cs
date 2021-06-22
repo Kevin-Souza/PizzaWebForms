@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,9 +13,12 @@ namespace LoginWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (CapturaID())
+            if (!Page.IsPostBack)
             {
-                DadosConsulta();
+                if (CapturaID())
+                {
+                    DadosConsulta();
+                }
             }
         }
 
@@ -39,6 +43,7 @@ namespace LoginWebForms
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    txtID.Text = reader["id_usu"].ToString();
                     txtNome.Text = reader["nome"].ToString();
                     txtLogin.Text = reader["login"].ToString();
                     ddlNivel.Text = reader["nivel"].ToString();
@@ -90,6 +95,7 @@ namespace LoginWebForms
                                             nivel       = @nivel
                                         where id_usu    = @id";
 
+                cmd.Parameters.AddWithValue("@id", txtID.Text);
                 cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                 cmd.Parameters.AddWithValue("@login", txtLogin.Text);
                 cmd.Parameters.AddWithValue("@senha", txtSenha.Text);

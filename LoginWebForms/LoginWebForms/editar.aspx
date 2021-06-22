@@ -9,7 +9,11 @@
     </div>
 
     <div class="row" style="margin-top: 15px">
-        <div class="col-md-12">
+        <div class="col-md-2">
+            <label>ID:</label>
+            <asp:TextBox ID="txtID" runat="server" MaxLength="50" CssClass="form-control" Enabled="false"></asp:TextBox>
+        </div>        
+        <div class="col-md-10">
             <label>Nome:</label>
             <asp:RequiredFieldValidator ID="rfvNome" ControlToValidate="txtNome"
                 ErrorMessage="*" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>

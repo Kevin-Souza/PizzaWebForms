@@ -18,7 +18,7 @@ namespace LoginWebForms
 
         private void CarregarProdutos()
         {
-            string query = @"select id_pizza, sabor, tamanho, bordas from pizza";
+            string query = @"select id_pizza, sabor, tamanho, bordas, preco from pizza";
             DataTable dtp = new DataTable();
             try
             {
@@ -50,18 +50,18 @@ namespace LoginWebForms
 
         }
 
-        //protected void rptUsuarios_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        //{
-        //    string nivel = Session["Perfil"].ToString();
+        protected void rptUsuarios_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string nivel = Session["Perfil"].ToString();
 
-        //    var lnkEditar = (LinkButton)e.Item.FindControl("lnkEditar");
-        //    var lnkRemover = (LinkButton)e.Item.FindControl("lnkRemover");
+            var lnkEditar = (LinkButton)e.Item.FindControl("lnkEditar");
+            var lnkRemover = (LinkButton)e.Item.FindControl("lnkRemover");
 
-        //    if (lnkEditar != null && lnkRemover != null && nivel == "O")
-        //    {
-        //        lnkEditar.Visible = false;
-        //        lnkRemover.Visible = false;
-        //    }
-        //}
+            if (lnkEditar != null && lnkRemover != null && nivel == "O")
+            {
+                lnkEditar.Visible = false;
+                lnkRemover.Visible = false;
+            }
+        }
     }
 }

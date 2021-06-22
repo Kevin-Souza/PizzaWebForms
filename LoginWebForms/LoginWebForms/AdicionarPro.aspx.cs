@@ -16,9 +16,6 @@ namespace LoginWebForms
         }
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            //Salva foto 
-            //uplImg.SaveAs(Server.MapPath($"ImgPizzas/{uplImg.FileName}"));
-
             {
                 var mensagem = string.Empty;
                 if (this.uplImg. HasFile)

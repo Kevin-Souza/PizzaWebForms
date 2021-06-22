@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Produto.aspx.cs" Inherits="LoginWebForms.Produto" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <link rel="stylesheet" type="text/css"
+    <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <script src="Scripts/jquery-3.0.0.js"></script>
@@ -11,9 +12,8 @@
 
 </asp:Content>
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="col-md-12">
+    <div class="col-md-12">
         <div class="text-center text-warning">
             <h2>Listagem de Produtos</h2>
         </div>
@@ -34,6 +34,8 @@
                                 <td><strong>Sabor</strong></td>
                                 <td><strong>Tamanho</strong></td>
                                 <td><strong>Bordas</strong></td>
+                                <td><strong>Funções</strong></td>
+                                <td><strong>Preço</strong></td>
                             </tr>
                         </thead>
                 </HeaderTemplate>
@@ -50,7 +52,10 @@
                             <%# DataBinder.Eval(Container.DataItem, "tamanho") %>
                         </td>
                         <td>
-                            <%# DataBinder.Eval(Container.DataItem, "Bordas") %>
+                            <%# DataBinder.Eval(Container.DataItem, "bordas") %>
+                        </td>
+                        <td>
+                            <%# DataBinder.Eval(Container.DataItem, "preco") %>
                         </td>
                         <td>
                             <asp:LinkButton ID="lnkDetalhes" runat="server">
